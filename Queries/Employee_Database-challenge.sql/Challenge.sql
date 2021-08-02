@@ -29,9 +29,6 @@ FROM unique_titles as ut
 GROUP BY title 
 ORDER BY COUNT(title) DESC;
 
-
--- DELIVERABLE 2: The Employees Eligible for the Mentorship Program
-
 -- Write a query to create a Mentorship Eligibility table that holds the employees who are eligible to participate in a mentorship program.
 SELECT DISTINCT ON(e.emp_no) e.emp_no, 
     e.first_name, 
