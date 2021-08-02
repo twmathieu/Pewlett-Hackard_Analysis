@@ -1,10 +1,11 @@
--- Follow the instructions below to complete Deliverable 1.
+-- Follow the instructions below to complete Deliverable 1
 SELECT e.emp_no,
        e.first_name,
        e.last_name,
        t.title,
        t.from_date,
        t.to_date
+	   
 INTO retirement_titles
 FROM employees as e
 INNER JOIN titles as t
@@ -19,7 +20,7 @@ last_name,
 title
 INTO unique_titles
 FROM retirement_titles
-ORDER BY emp_no, title DESC;
+ORDER BY emp_no, title 
 
 -- Retrieve the number of employees by their most recent job title who are about to retire.
 SELECT COUNT(ut.emp_no),
@@ -29,7 +30,8 @@ FROM unique_titles as ut
 GROUP BY title 
 ORDER BY COUNT(title) DESC;
 
--- Write a query to create a Mentorship Eligibility table that holds the employees who are eligible to participate in a mentorship program.
+
+-- DELIVERABLE 2: The Employees Eligible for the Mentorship Program
 SELECT DISTINCT ON(e.emp_no) e.emp_no, 
     e.first_name, 
     e.last_name, 
@@ -42,6 +44,6 @@ FROM employees as e
 Left outer Join dept_emp as de
 ON (e.emp_no = de.emp_no)
 Left outer Join titles as t
-ON (e.emp_no = t.emp_no)
+ON (e.emp_no = t.emp_no
 WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY e.emp_no;
