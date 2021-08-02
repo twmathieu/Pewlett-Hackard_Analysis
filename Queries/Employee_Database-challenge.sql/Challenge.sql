@@ -1,4 +1,4 @@
--- Follow the instructions below to complete Deliverable 1
+-- Deliverable 1
 SELECT e.emp_no,
        e.first_name,
        e.last_name,
@@ -22,7 +22,9 @@ INTO unique_titles
 FROM retirement_titles
 ORDER BY emp_no, title 
 
--- Retrieve the number of employees by their most recent job title who are about to retire.
+-- Retrieve the number of employees by their most recent job title0 who can retire
+
+
 SELECT COUNT(ut.emp_no),
 ut.title
 INTO retiring_titles
@@ -31,7 +33,7 @@ GROUP BY title
 ORDER BY COUNT(title) DESC;
 
 
--- DELIVERABLE 2: The Employees Eligible for the Mentorship Program
+-- DELIVERABLE 2
 SELECT DISTINCT ON(e.emp_no) e.emp_no, 
     e.first_name, 
     e.last_name, 
